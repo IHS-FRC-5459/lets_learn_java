@@ -4,15 +4,18 @@ import java.util.Scanner;
 //the Class is what contains all your code, including methods, objects, and variables, and literally anything else
 public class Example {
 	
-	//A Scanner looks through a String.
+	//A Scanner looks at each character in a String.
 	//This Scanner looks through user input (System.in) from the console.
 	public static Scanner sc = new Scanner(System.in);
 	
 	//The main method is required for the program to start.
 	//It's basically where the computer looks first in the program. This method doesn't need to be called from another method.
 	public static void main(String[] args) {
+		//System.out.println() displays the text to the user when the program runs.
 		System.out.println("i am computer; What's your name?");
+		//Saves the next line the user types as a String called name.
 		String name = sc.nextLine();
+		//calls the method nameGame and gives it the String name.
 		nameGame(name);
 	}
 	
@@ -21,13 +24,16 @@ public class Example {
 		if (!name.equals("computer")) {
 			if(name.contains(";")) {
 				System.out.println("Good!!! Fantastic name, love this one, keep up the good work " + name);
-				
+				System.out.println("Play again? [yes/no]");
+				String answer = sc.nextLine();
+				if(answer.equals("Yes")||answer.equals("yes"))
 			}
 			else if(name.contains("g")||name.contains("G")) {
 				System.out.println("computer i am, I do not like the letter g, dispose of it please\n wiht java built in garbage collecting, i do not like it computer i am. What's your new name?");
 				nameGame(sc.nextLine());
 			}	
 			else if (name.length()>=10) {
+				//to type a " within a String, you have to preface it with a backslash \ because the computer uses " to begin and end Strings.
 				System.out.println("Ummmmmm... that name \"" + name + "\" is too long, pick a new one please it hurt my eyyes to look at a name so long\n new name?");
 				nameGame(sc.nextLine());
 			}
